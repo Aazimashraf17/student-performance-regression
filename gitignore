@@ -1,0 +1,13 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+.DS_Store
+.env
+node_modules/
+# Keep generated results tracked so visitors can inspect the project immediately.

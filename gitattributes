@@ -1,0 +1,2 @@
+# Preserve the source bytes: both analysis scripts verify the raw CSV checksum.
+data/student-mat.csv -text
