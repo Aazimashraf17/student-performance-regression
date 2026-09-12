@@ -8,6 +8,14 @@ The bundled mathematics dataset contains **395 records** from the [UCI Student P
 
 ![Training relationship, held-out predictions, residuals, and model comparison](reports/figures/regression_overview.svg)
 
+## Interactive demo
+
+[Open the grade predictor on GitHub Pages](https://aazimashraf17.github.io/student-performance-regression/)
+
+Enter G1 and G2 on the 0–20 scale to see the final-grade estimate and graph update. The standalone `index.html` calculates predictions in the browser using the saved model coefficients; no account or backend is required. You can also download it and open it directly in a browser.
+
+To enable publication, open **Settings → Pages**, select **Deploy from a branch**, choose **main** and **/(root)**, then **Save**. The link becomes available after GitHub finishes the Pages deployment.
+
 ## What this project demonstrates
 
 - Loading and validating a real CSV dataset.
@@ -167,3 +175,4 @@ Code: [MIT license](LICENSE). Dataset: [CC BY 4.0](https://creativecommons.org/l
 Cortez, P. (2008). *Student Performance* [Dataset]. UCI Machine Learning Repository. [doi:10.24432/C5TG7T](https://doi.org/10.24432/C5TG7T).
 
 Implementation references: [scikit-learn LinearRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html) and [R lm](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html).
+
