@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111c30">
+  <meta name="description" content="Try Aazim Ashraf's student performance regression model. Enter two earlier grades, see a final-grade estimate, and explore the model's measured performance.">
+  <title>Student Performance Regression · Aazim Ashraf</title>
+  <!-- Model source: Aazimashraf17/student-performance-regression at c1a370384a3bed7f9989da29c5414d814391be56, reports/python/model.json. -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%232d63e8'/%3E%3Cpath d='M10 9v22h22M13 26l7-7 5 1 7-11' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <style>
+:root{color-scheme:light;--navy:#111c30;--ink:#17243a;--muted:#536176;--blue:#2d63e8;--line:#e1e7f0;--paper:#f3f6fb;--gold:#f2bd52;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-synthesis:none;font-size:16px}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);line-height:1.5}button,input{font:inherit}a{color:inherit;text-decoration:none}a:hover{text-decoration:underline}button,a,input{touch-action:manipulation}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #5b8df9;outline-offset:4px}[hidden]{display:none!important}.page{max-width:1180px;margin:auto;padding:0 36px}.skip{position:absolute;top:-100px;left:20px;background:white;padding:10px 16px;z-index:2}.skip:focus{top:10px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:29px 0;border-bottom:1px solid #dce3ed}.brand{display:flex;align-items:center;gap:12px}.brand:hover{text-decoration:none}.brand-symbol{display:grid;place-items:center;background:var(--blue);color:white;border-radius:11px;width:43px;height:43px;font-family:Georgia,serif;font-size:32px;font-weight:bold;line-height:1}.brand strong{display:block;font-size:17px;letter-spacing:-.3px}.brand small{display:block;font-size:13px;color:var(--muted);margin-top:1px}.source-link{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:600;border:1px solid #ccd6e4;border-radius:8px;padding:9px 15px;background:white}.source-link span{font-size:19px;line-height:1}.intro{padding:31px 0 27px}.eyebrow{font-size:12px;font-weight:700;letter-spacing:1.6px;margin:0;color:var(--muted)}h1{font-size:clamp(27px,3.3vw,38px);line-height:1.2;letter-spacing:-1.1px;margin:9px 0 10px;font-weight:720}.intro>p:last-child{margin:0;color:var(--muted);font-size:16px}.mobile-break{display:none}h2{font-size:17px;font-weight:650;line-height:1.4;margin:0;letter-spacing:-.2px}.workspace{display:grid;grid-template-columns:1fr 1.1fr;border:1px solid #d9e0eb;border-radius:18px;overflow:hidden;background:white;box-shadow:0 8px 34px #13223a08}.inputs{background:var(--navy);color:#f8faff;padding:29px 31px 26px;min-width:0}.section-title{display:flex;justify-content:space-between;align-items:center;gap:15px}.scale-label{font-size:13px;color:#c1cbde}.grade-control{margin-top:28px}.grade-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}.grade-heading label{font-size:16px;font-weight:550;line-height:1.5}.grade-heading label span{color:#a1b1cd;font-size:13px;font-weight:450;margin-left:6px}.number-input{width:82px;min-width:65px;padding:8px 9px;border:1px solid #41516d;border-radius:8px;color:white;background:#1e2d46;font-size:24px;font-weight:600;font-variant-numeric:tabular-nums;text-align:center;appearance:textfield}.number-input::-webkit-inner-spin-button,.number-input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}.number-input[aria-invalid="true"]{border-color:#f8b083}.grade-slider{--position:60%;appearance:none;-webkit-appearance:none;width:100%;height:6px;border-radius:12px;margin:23px 0 0;background:linear-gradient(to right,#8cadff 0%,#8cadff var(--position),#394960 var(--position),#394960 100%);cursor:pointer;display:block}.grade-slider::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:#f8fbff;border:4px solid #89acff;border-radius:50%;box-shadow:0 0 0 5px #95b2ff16}.grade-slider::-moz-range-thumb{width:13px;height:13px;background:#f8fbff;border:4px solid #89acff;border-radius:50%}.range-labels{display:flex;justify-content:space-between;margin-top:11px;font-size:12px;color:#aebed6;font-variant-numeric:tabular-nums}.input-help{font-size:14px;color:#c0cbe0;line-height:1.6;margin:23px 0 14px;max-width:360px}.input-error{font-size:14px;line-height:1.5;color:#ffd0af;margin:12px 0}.reset-button{padding:6px 0;border:0;border-bottom:1px solid #6d7f9b;background:transparent;color:#e2e9f7;font-size:14px;font-weight:550}.reset-button:hover{color:white;border-color:white}.prediction-panel{padding:30px 34px 27px;min-width:0;display:flex;flex-direction:column;justify-content:center}.result-heading{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}.result-heading .eyebrow{font-size:12px;letter-spacing:1.2px}.model-tag{font-size:12px;border:1px solid #dce5f2;background:#f1f5ff;color:#36518f;border-radius:20px;padding:4px 9px;white-space:nowrap}.result-line{display:flex;align-items:baseline;gap:12px;margin:13px 0 0;line-height:1.2}#prediction{font-size:clamp(62px,7vw,90px);font-weight:650;letter-spacing:-4px;font-variant-numeric:tabular-nums;color:var(--blue)}.out-of{font-size:24px;color:#7d899b;font-weight:450;white-space:nowrap}.result-note{color:var(--muted);font-size:14px;margin:7px 0 0;min-height:42px}.result-note.warning{color:#975e13}.grade-meter{height:8px;border-radius:8px;background:#e6edf9;position:relative;margin-top:17px}.grade-meter>span{display:block;background:var(--blue);height:100%;border-radius:8px;width:69.35%;transition:width .12s ease}.grade-meter>i{position:absolute;top:-4px;left:69.35%;width:16px;height:16px;border:3px solid var(--blue);background:white;border-radius:50%;transform:translateX(-50%);transition:left .12s ease}.meter-labels{display:flex;justify-content:space-between;font-size:12px;color:#738197;font-variant-numeric:tabular-nums;margin:10px 0 22px}.equation-box{padding-top:18px;border-top:1px solid var(--line)}.equation-label{font-size:12px;letter-spacing:1.2px;color:var(--muted);font-weight:650}.equation-box p{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;color:#283951;margin:8px 0;line-height:1.8;overflow-wrap:anywhere}.equation-footnote{font-size:12px;color:var(--muted)}.evidence-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;margin-top:22px}.graph-panel,.performance-panel{background:white;border:1px solid var(--line);border-radius:14px;padding:25px 27px;min-width:0}.panel-note{font-size:14px;color:var(--muted);margin:6px 0 0}.line-key{font-size:12px;display:flex;align-items:center;gap:6px;color:var(--muted)}.line-key i{width:20px;height:3px;background:var(--blue);display:block}.graph-panel svg{width:100%;height:auto;display:block;margin-top:15px;overflow:visible}.chart-grid path{stroke:#e8edf4;stroke-width:1;fill:none}.chart-labels{font-size:13px;fill:#65748b;font-family:inherit}.model-line{stroke:var(--blue);stroke-width:3;fill:none;stroke-linecap:round}.point-guide{stroke:#a67b26;stroke-width:1.2;stroke-dasharray:4 4}.prediction-point{fill:var(--gold);stroke:#7b5816;stroke-width:1.8}.metrics{margin:19px 0 0}.metrics>div{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:12px 0;border-bottom:1px solid #edf0f5}.metrics>div:last-child{border:0}.metrics dt{font-size:14px;color:#44546c;max-width:225px}.metrics dt span{font-size:12px;color:#76849a;display:block;margin-top:1px}.metrics dd{margin:0;font-size:25px;letter-spacing:-.8px;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}.metrics dd small{font-size:12px;letter-spacing:0;color:#718098;font-weight:400}.metric-note{font-size:13px;color:var(--muted);line-height:1.6;margin:13px 0 0}.context-note{display:flex;gap:12px;align-items:flex-start;padding:21px 3px 22px}.context-mark{display:grid;place-items:center;flex-shrink:0;width:19px;height:19px;border:1px solid #8f9bb0;border-radius:50%;font-size:12px;font-weight:600;color:#65748a;margin-top:3px}.context-note p{font-size:13px;line-height:1.7;color:var(--muted);margin:0}.context-note a{text-decoration:underline;text-underline-offset:3px;color:#304e7c}.no-script{padding:16px;background:#fff0db;border:1px solid #dfc098}footer{display:flex;align-items:center;justify-content:space-between;gap:18px;border-top:1px solid #dce3ed;padding:19px 0 26px;font-size:12px;color:var(--muted)}footer a{text-decoration:underline;text-underline-offset:3px}
+@media(min-width:1100px){.inputs{padding-right:38px;padding-left:38px}.prediction-panel{padding-left:39px;padding-right:39px}}
+@media(max-width:840px){.page{padding:0 24px}.workspace{grid-template-columns:1fr 1fr}.inputs,.prediction-panel{padding:26px 23px}.result-heading{align-items:flex-start;flex-direction:column}.grade-heading label span{display:block;margin:0}.result-line{gap:6px}#prediction{font-size:69px;letter-spacing:-3px}.out-of{font-size:21px}.evidence-grid{gap:16px;grid-template-columns:1fr 1fr}.graph-panel,.performance-panel{padding:22px 19px}.metrics dt{font-size:13px}.metrics dd{font-size:22px}.equation-box p{font-size:12px}footer{flex-wrap:wrap;justify-content:flex-start;column-gap:25px}}
+@media(max-width:650px){.page{padding:0 18px}.topbar{padding:20px 0;gap:12px}.brand-symbol{width:37px;height:37px;font-size:28px;border-radius:9px}.brand{gap:9px}.brand strong{font-size:14px}.brand small{font-size:12px}.source-link{padding:8px 10px;font-size:12px;gap:5px}.source-link span{font-size:17px}.intro{padding:25px 0 22px}.eyebrow{font-size:12px;letter-spacing:1.2px}h1{font-size:30px;letter-spacing:-.8px;margin-top:9px}.intro>p:last-child{font-size:15px;max-width:350px}.workspace{grid-template-columns:1fr;border-radius:14px}.inputs{padding:23px 25px}.grade-control{margin-top:21px}.grade-heading label span{display:inline;margin-left:7px}.grade-slider{margin-top:18px}.input-help{margin-top:20px}.prediction-panel{padding:26px 25px}.result-heading{align-items:center;flex-direction:row}.result-line{margin-top:11px;gap:12px}#prediction{font-size:82px}.result-note{min-height:0}.grade-meter{margin-top:25px}.equation-box p{font-size:13px}.evidence-grid{grid-template-columns:1fr;gap:17px;margin-top:17px}.graph-panel,.performance-panel{padding:23px}.metrics dt{font-size:14px}.metrics dd{font-size:26px}.context-note{padding-top:19px}.context-note p{font-size:13px}.mobile-break{display:inline}footer{font-size:12px;gap:9px 20px;padding-bottom:22px}footer>span:nth-child(2){order:3;flex-basis:100%}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+
+.axis-label{text-align:right;font-size:14px;color:#65748b;margin:0 0 0 35px}.chart-labels{font-size:16px}@media(max-width:650px){.chart-labels{font-size:24px}}
+
+  </style>
+</head>
+<body>
+  <a class="skip" href="#predictor">Skip to grade predictor</a>
+  <div class="page">
+    <header class="topbar">
+      <a class="brand" href="#predictor" aria-label="Student Performance Regression home">
+        <span class="brand-symbol" aria-hidden="true">ŷ</span>
+        <span><strong>Student Performance</strong><small>Aazim Ashraf · Data Science</small></span>
+      </a>
+      <a class="source-link" href="https://github.com/Aazimashraf17/student-performance-regression" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="predictor">
+      <div class="intro">
+        <p class="eyebrow">LINEAR REGRESSION / INTERACTIVE DEMO</p>
+        <h1>Two earlier grades.<br class="mobile-break"> One final estimate.</h1>
+        <p>Adjust the grades to explore the model trained in Python and R.</p>
+      </div>
+
+      <section class="workspace" aria-label="Grade predictor">
+        <form class="inputs" id="grade-form" novalidate>
+          <div class="section-title"><h2>Earlier grades</h2><span class="scale-label">0–20 scale</span></div>
+          <div class="grade-control">
+            <div class="grade-heading">
+              <label for="g1">First-period grade <span>G1</span></label>
+              <input id="g1" name="g1" class="number-input" type="number" min="0" max="20" step="any" inputmode="decimal" value="12" aria-describedby="input-help input-error">
+            </div>
+            <input id="g1-range" class="grade-slider" type="range" min="0" max="20" step="0.1" value="12" aria-label="Adjust first-period grade">
+            <div class="range-labels" aria-hidden="true"><span>0</span><span>10</span><span>20</span></div>
+          </div>
+          <div class="grade-control">
+            <div class="grade-heading">
+              <label for="g2">Second-period grade <span>G2</span></label>
+              <input id="g2" name="g2" class="number-input" type="number" min="0" max="20" step="any" inputmode="decimal" value="14" aria-describedby="input-help input-error">
+            </div>
+            <input id="g2-range" class="grade-slider" type="range" min="0" max="20" step="0.1" value="14" aria-label="Adjust second-period grade">
+            <div class="range-labels" aria-hidden="true"><span>0</span><span>10</span><span>20</span></div>
+          </div>
+          <p id="input-help" class="input-help">Use grades from the first and second assessment periods.</p>
+          <p id="input-error" class="input-error" role="status" hidden>Enter both grades as numbers between 0 and 20.</p>
+          <button class="reset-button" id="reset-example" type="button">Reset example</button>
+        </form>
+
+        <div class="prediction-panel">
+          <div class="result-heading"><p class="eyebrow">PREDICTED FINAL GRADE</p><span class="model-tag">G1 + G2 model</span></div>
+          <div class="result-line"><output id="prediction" for="g1 g2" aria-live="polite" aria-atomic="true">13.87</output><span class="out-of">/ 20</span></div>
+          <p class="result-note" id="result-note">An estimate, not a guaranteed outcome.</p>
+          <div class="grade-meter" id="grade-meter" aria-hidden="true"><span id="meter-fill"></span><i id="meter-marker"></i></div>
+          <div class="meter-labels" aria-hidden="true"><span>0</span><span>10</span><span>20</span></div>
+          <div class="equation-box">
+            <span class="equation-label">THE TRAINED EQUATION</span>
+            <p>G3 ≈ −1.5111 + 0.1188 × G1 + 0.9967 × G2</p>
+            <span class="equation-footnote">Prediction uses the full-precision coefficients.</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="evidence-grid">
+        <section class="graph-panel" aria-labelledby="graph-heading">
+          <div class="section-title"><h2 id="graph-heading">How the estimate changes</h2><span class="line-key"><i></i>Model</span></div>
+          <p class="panel-note" id="graph-subtitle">Varying G2 while keeping G1 at 12.</p>
+          <svg id="model-chart" viewBox="0 0 560 245" role="img" aria-labelledby="chart-title chart-description">
+            <title id="chart-title">Final-grade prediction as second-period grade changes</title>
+            <desc id="chart-description">The line shows the fitted equation with the first-period grade fixed. The gold point marks your selected grades.</desc>
+            <g class="chart-grid" aria-hidden="true">
+              <path d="M49 186.333333H538M49 147.166667H538M49 108H538M49 68.833333H538M49 29.666667H538"/>
+              <path d="M49 14V202M171.25 14V202M293.5 14V202M415.75 14V202M538 14V202"/>
+            </g>
+            <g class="chart-labels" aria-hidden="true">
+              <text x="37" y="191" text-anchor="end">0</text><text x="37" y="152" text-anchor="end">5</text><text x="37" y="113" text-anchor="end">10</text><text x="37" y="74" text-anchor="end">15</text><text x="37" y="35" text-anchor="end">20</text>
+              <text x="49" y="224" text-anchor="middle">0</text><text x="171.25" y="224" text-anchor="middle">5</text><text x="293.5" y="224" text-anchor="middle">10</text><text x="415.75" y="224" text-anchor="middle">15</text><text x="538" y="224" text-anchor="middle">20</text>
+              <text x="8" y="11">G3</text>
+            </g>
+            <path id="model-line" class="model-line" d=""/>
+            <line id="point-guide" class="point-guide" x1="391.3" x2="391.3" y1="200" y2="77.6"/>
+            <circle id="prediction-point" class="prediction-point" cx="391.3" cy="77.6" r="6.5"/>
+          </svg>
+          <p class="axis-label">Second-period grade (G2)</p>
+        </section>
+
+        <section class="performance-panel" aria-labelledby="performance-heading">
+          <h2 id="performance-heading">Performance on unseen records</h2>
+          <p class="panel-note">316 training records · 79 test records</p>
+          <dl class="metrics">
+            <div><dt>Average absolute error <span>MAE</span></dt><dd id="mae-value">1.34 <small>points</small></dd></div>
+            <div><dt>Root mean squared error <span>RMSE</span></dt><dd id="rmse-value">2.27 <small>points</small></dd></div>
+            <div><dt>Coefficient of determination <span>R²</span></dt><dd id="r2-value">0.746</dd></div>
+          </dl>
+          <p class="metric-note">Individual errors can be larger. R² is not an accuracy percentage.</p>
+        </section>
+      </div>
+
+      <aside class="context-note">
+        <span class="context-mark" aria-hidden="true">i</span>
+        <p>A learning demo using <a href="https://archive.ics.uci.edu/dataset/320/student+performance" target="_blank" rel="noopener noreferrer">UCI Student Performance data</a> from Portuguese secondary schools. Both earlier grades must already be available. The model has not been validated on IUST students.</p>
+      </aside>
+      <noscript><p class="no-script">Enable JavaScript to change the grades and calculate a prediction. The initial 13.87 example uses G1 = 12 and G2 = 14.</p></noscript>
+    </main>
+    <footer><span>Built by Aazim Ashraf</span><span>Your grade inputs stay in your browser.</span><a href="https://github.com/Aazimashraf17/student-performance-regression#attribution-and-license" target="_blank" rel="noopener noreferrer">Data &amp; code credits</a></footer>
+  </div>
+<script>
+'use strict';
+(() => {
+const MODEL = Object.freeze({
+  "schema_version": 1,
+  "target": "G3",
+  "features": [
+    "G1",
+    "G2"
+  ],
+  "intercept": -1.5111354135433466,
+  "coefficients": {
+    "G1": 0.11880103721157027,
+    "G2": 0.9967343195736891
+  },
+  "grade_range": [
+    0,
+    20
+  ],
+  "training_rows": 316,
+  "dataset_sha256": "e47f9ee225e1ee6e69b7564e6dac7123e80b8486677fe111f351964cef5dec80",
+  "note": "Trained on the training split only; educational late-term prediction."
+});
+const METRICS = Object.freeze([
+  {
+    "name": "mean_baseline",
+    "testRows": 79,
+    "mae": 3.364364685146611,
+    "rmse": 4.517675234112132,
+    "r2": -0.003474246458789576
+  },
+  {
+    "name": "simple_G2",
+    "testRows": 79,
+    "mae": 1.362391168576684,
+    "rmse": 2.3075790631540296,
+    "r2": 0.7381880915339993
+  },
+  {
+    "name": "multiple_G1_G2",
+    "testRows": 79,
+    "mae": 1.3447608111149616,
+    "rmse": 2.2721338435826257,
+    "r2": 0.746169364079905
+  }
+]);
+
+
+function predictGrade(g1, g2) {
+  if (typeof g1 !== 'number' || typeof g2 !== 'number' || !Number.isFinite(g1) || !Number.isFinite(g2) || g1 < 0 || g1 > 20 || g2 < 0 || g2 > 20) {
+    throw new RangeError('Both grades must be finite numbers between 0 and 20.');
+  }
+  return MODEL.intercept + MODEL.coefficients.G1 * g1 + MODEL.coefficients.G2 * g2;
+}
+
+function createDemo(doc) {
+  const byId = id => doc.getElementById(id);
+  const inputs = [byId('g1'), byId('g2')];
+  const sliders = [byId('g1-range'), byId('g2-range')];
+  let state = null;
+  const x = value => 49 + value / 20 * 489;
+  const y = value => 202 - (value + 2) / 24 * 188;
+  const testMetrics = METRICS.find(row => row.name === 'multiple_G1_G2');
+
+  function readGrade(input) {
+    return input.value.trim() === '' ? Number.NaN : Number(input.value);
+  }
+
+  function render() {
+    const values = inputs.map(readGrade);
+    const valid = values.map(value => Number.isFinite(value) && value >= 0 && value <= 20);
+    inputs.forEach((input, index) => input.setAttribute('aria-invalid', String(!valid[index])));
+    sliders.forEach((slider, index) => {
+      if (valid[index]) slider.value = String(values[index]);
+      slider.style.setProperty('--position', `${Number(slider.value) * 5}%`);
+    });
+    byId('input-error').hidden = valid.every(Boolean);
+    byId('model-chart').style.opacity = valid.every(Boolean) ? '1' : '0.35';
+    if (!valid.every(Boolean)) {
+      state = null;
+      byId('prediction').textContent = '—';
+      byId('result-note').textContent = 'Enter both grades between 0 and 20 to see the estimate.';
+      byId('result-note').classList.remove('warning');
+      byId('grade-meter').style.visibility = 'hidden';
+      byId('prediction-point').style.display = 'none';
+      byId('point-guide').style.display = 'none';
+      byId('model-line').setAttribute('d', '');
+      byId('graph-subtitle').textContent = 'The graph will update when both grades are valid.';
+      return null;
+    }
+    const [g1, g2] = values;
+    const predicted = predictGrade(g1, g2);
+    const outsideRange = predicted < 0 || predicted > 20;
+    state = { g1, g2, predictedGrade: predicted, displayedGrade: predicted.toFixed(2), outsideGradeScale: outsideRange };
+    byId('prediction').textContent = state.displayedGrade;
+    byId('result-note').textContent = outsideRange
+      ? 'The raw prediction is outside 0–20. Linear regression does not constrain its output.'
+      : 'An estimate, not a guaranteed outcome.';
+    byId('result-note').classList.toggle('warning', outsideRange);
+    const position = Math.max(0, Math.min(20, predicted)) * 5;
+    byId('grade-meter').style.visibility = 'visible';
+    byId('meter-fill').style.width = `${position}%`;
+    byId('meter-marker').style.left = `${position}%`;
+    byId('graph-subtitle').textContent = `Varying G2 while keeping G1 at ${g1}.`;
+    byId('model-line').setAttribute('d', `M ${x(0)} ${y(predictGrade(g1, 0))} L ${x(20)} ${y(predictGrade(g1, 20))}`);
+    byId('prediction-point').style.display = '';
+    byId('point-guide').style.display = '';
+    byId('prediction-point').setAttribute('cx', String(x(g2)));
+    byId('prediction-point').setAttribute('cy', String(y(predicted)));
+    byId('point-guide').setAttribute('x1', String(x(g2)));
+    byId('point-guide').setAttribute('x2', String(x(g2)));
+    byId('point-guide').setAttribute('y1', '202');
+    byId('point-guide').setAttribute('y2', String(y(predicted)));
+    byId('chart-description').textContent = `With G1 fixed at ${g1}, the line shows the predicted final grade as G2 varies from 0 to 20. Your selected G2 of ${g2} gives a prediction of ${state.displayedGrade}.`;
+    return { ...state };
+  }
+
+  function setGrades(g1, g2) {
+    predictGrade(g1, g2); // Validate before changing visible state.
+    inputs[0].value = String(g1);
+    inputs[1].value = String(g2);
+    return render();
+  }
+
+  inputs.forEach(input => input.addEventListener('input', render));
+  sliders.forEach((slider, index) => slider.addEventListener('input', () => {
+    inputs[index].value = slider.value;
+    render();
+  }));
+  byId('grade-form').addEventListener('submit', event => { event.preventDefault(); render(); });
+  byId('reset-example').addEventListener('click', () => setGrades(12, 14));
+  byId('mae-value').innerHTML = `${testMetrics.mae.toFixed(2)} <small>points</small>`;
+  byId('rmse-value').innerHTML = `${testMetrics.rmse.toFixed(2)} <small>points</small>`;
+  byId('r2-value').textContent = testMetrics.r2.toFixed(3);
+  render();
+  return { setGrades, getState: () => state ? { ...state } : null };
+}
+
+
+createDemo(document);
+})();
+</script>
+</body>
+</html>
