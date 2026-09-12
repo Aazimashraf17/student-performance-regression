@@ -1,0 +1,9 @@
+{
+  "rows": 395,
+  "source_columns": 33,
+  "missing_cells": 0,
+  "duplicate_source_rows": 0,
+  "zero_final_grades_retained": 38,
+  "train_rows": 316,
+  "test_rows": 79
+}

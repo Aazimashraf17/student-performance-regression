@@ -1,0 +1,6 @@
+# Versions used to produce the included Python results (Python 3.12).
+numpy==2.3.5
+pandas==2.2.3
+scikit-learn==1.8.0
+matplotlib==3.10.8
+scipy==1.17.0

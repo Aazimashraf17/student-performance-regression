@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "target": "G3",
+  "features": [
+    "G1",
+    "G2"
+  ],
+  "intercept": -1.5111354135433466,
+  "coefficients": {
+    "G1": 0.11880103721157027,
+    "G2": 0.9967343195736891
+  },
+  "grade_range": [
+    0,
+    20
+  ],
+  "training_rows": 316,
+  "dataset_sha256": "e47f9ee225e1ee6e69b7564e6dac7123e80b8486677fe111f351964cef5dec80",
+  "note": "Trained on the training split only; educational late-term prediction."
+}

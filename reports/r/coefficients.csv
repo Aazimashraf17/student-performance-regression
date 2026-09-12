@@ -1,0 +1,7 @@
+"model","term","estimate"
+"mean_baseline","intercept",10.4683544303797
+"simple_G2","intercept",-1.15503526138286
+"simple_G2","G2",1.08475816379119
+"multiple_G1_G2","intercept",-1.51113541354339
+"multiple_G1_G2","G1",0.118801037211572
+"multiple_G1_G2","G2",0.996734319573689
